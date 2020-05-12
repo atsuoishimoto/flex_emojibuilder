@@ -1,5 +1,14 @@
 # emojibuilder
 
+Slack/Discordなんかの絵文字を作るツール
+
+
+
+https://atsuoishimoto.github.io/flex_emojibuilder/
+
+
+
+
 ## Project setup
 ```
 yarn install
