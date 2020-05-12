@@ -65,10 +65,10 @@
     </div>
 
     <p style="margin-top:10em;font-size: 9pt; text-align:center;">
-      Copyright (C)
+      Copyright (C) 
       <a href="https://twitter.com/atsuoishimoto"
         ><img src="../../public/twitter.png" width="16px" /> atsuoishimoto</a
-      >
+      > <a href="https://github.com/atsuoishimoto/flex_emojibuilder">https://github.com/atsuoishimoto/flex_emojibuilder</a><br/>
       当サイトのパフォーマンスと、利用者の経験の改善のために、Cookieを用いたユーザ情報の収集を行っていません。してないってば。
     </p>
   </div>
