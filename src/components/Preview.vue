@@ -4,10 +4,9 @@
       :style="
         `
             margin-top: 2em;
-            padding:5px;
             border: solid 1px #c0c0c0;
-            width: 132px;
-            height: 132px;
+            width: 128px;
+            height: 128px;
             transform-origin: top center;
           `
       "
@@ -17,7 +16,6 @@
           <div
             :style="
               `
-                  position: absolute;
                   width: 128px;
                   height: 128px;
                   display: flex;
@@ -95,7 +93,7 @@ export default {
   props: ["divstyle", "html"],
   data: function() {
     return {
-      imageurl: null,
+      imageurl: null
     };
   },
   updated: function() {
@@ -122,8 +120,8 @@ export default {
       const img = this.$refs.img_128;
       ctx.drawImage(img, 0, 0);
       this.imageurl = canvas.toDataURL("image/png", 1);
-    },
-  },
+    }
+  }
 };
 </script>
 
