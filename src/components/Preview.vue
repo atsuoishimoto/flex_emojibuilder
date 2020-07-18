@@ -50,36 +50,36 @@
     <div style="margin-top: 2em;">
       <img
         ref="img_64"
-        style="margin:  0.5em 2em; padding:5px; width:64px; height:64px; border: solid 1px #c0c0c0;"
+        style="margin:  0.5em 1.5em; padding:5px; width:64px; height:64px; border: solid 1px #c0c0c0;"
         @load="imgloaded"
       />
       <img
         ref="img_32"
-        style="margin:  0.5em 2em;  padding:5px; width:28px; height:28px; border: solid 1px #c0c0c0;"
+        style="margin:  0.5em 1.5em;  padding:5px; width:32px; height:32px; border: solid 1px #c0c0c0;"
         @load="imgloaded"
       />
     </div>
     <div>
       <img
         ref="img_64_gray"
-        style="margin: 0.5em 2em; padding:5px; width:64px; height:64px; border: solid 1px #c0c0c0;background-color:#d5dcf4;"
+        style="margin: 0.5em 1.5em; padding:5px; width:64px; height:64px; border: solid 1px #c0c0c0;background-color:#d5dcf4;"
         @load="imgloaded"
       />
       <img
         ref="img_32_gray"
-        style="margin: 0.5em 2em;  padding:5px; width:28px; height:28px; border: solid 1px #c0c0c0;background-color:#d5dcf4;"
+        style="margin: 0.5em 1.5em;  padding:5px; width:32px; height:32px; border: solid 1px #c0c0c0;background-color:#d5dcf4;"
         @load="imgloaded"
       />
     </div>
     <div>
       <img
         ref="img_64_black"
-        style="margin: 0.5em 2em; padding:5px; width:64px; height:64px; border: solid 1px #c0c0c0;background-color:#485d6d;"
+        style="margin: 0.5em 1.5em; padding:5px; width:64px; height:64px; border: solid 1px #c0c0c0;background-color:#485d6d;"
         @load="imgloaded"
       />
       <img
         ref="img_32_black"
-        style="margin: 0.5em 2em;  padding:5px; width:28px; height:28px; border: solid 1px #c0c0c0;background-color:#485d6d;"
+        style="margin: 0.5em 1.5em;  padding:5px; width:32px; height:32px; border: solid 1px #c0c0c0;background-color:#485d6d;"
         @load="imgloaded"
       />
     </div>
@@ -93,7 +93,7 @@ export default {
   props: ["divstyle", "html"],
   data: function() {
     return {
-      imageurl: null
+      imageurl: null,
     };
   },
   updated: function() {
@@ -120,8 +120,8 @@ export default {
       const img = this.$refs.img_128;
       ctx.drawImage(img, 0, 0);
       this.imageurl = canvas.toDataURL("image/png", 1);
-    }
-  }
+    },
+  },
 };
 </script>
 

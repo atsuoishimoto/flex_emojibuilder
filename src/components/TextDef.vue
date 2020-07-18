@@ -6,7 +6,7 @@
     >
       <div class="row">
         <div class="form-group">
-          <FontDef :font="text.font" />
+          <FontDef :font="format.font" />
         </div>
       </div>
 
@@ -14,35 +14,25 @@
         <div class="form-group" style="padding-right:1em;">
           <label>背景色</label>
           <ColorPicker
-            :color="text.backgroundcolor"
+            :color="format.backgroundcolor"
             @color_updated="color_updated"
           />
         </div>
         <div class="form-group" style="padding-right:1em;">
           <label>方向</label>
-          <select class="form-control" v-model="text.direction">
+          <select class="form-control" v-model="format.direction">
             <option value="row">行</option>
             <option value="column">列</option>
           </select>
         </div>
         <div class="form-group" style="padding-right:1em;">
           <label>justify-content</label>
-          <select class="form-control" v-model="text.justifycontent">
-            <option value="normal">Normal</option>
-            <option value="center">Center</option>
-            <option value="start">Start</option>
-            <option value="end">End</option>
+          <select class="form-control" v-model="format.justifycontent">
             <option value="flex-start">Flex start</option>
             <option value="flex-end">Flex end</option>
-            <option value="left">Left</option>
-            <option value="right">Right</option>
+            <option value="center">Center</option>
             <option value="space-between">Space between</option>
             <option value="space-around">Space around</option>
-            <option value="space-evenly">space evenly</option>
-            <option value="stretch">stretch</option>
-            <option value="baseline">Baseline</option>
-            <option value="first baseline">First baseline</option>
-            <option value="last baseline">Last baseline</option>
           </select>
         </div>
 
@@ -51,20 +41,13 @@
           <select
             id="align_content"
             class="form-control"
-            v-model="text.alignitems"
+            v-model="format.alignitems"
           >
-            <option value="normal">Normal</option>
-            <option value="stretch">Stretch</option>
-            <option value="center">Center</option>
-            <option value="start">Start</option>
-            <option value="end">End</option>
             <option value="flex-start">Flex start</option>
             <option value="flex-end">Flex end</option>
-            <option value="self-start">Self start</option>
-            <option value="self-end">Self end</option>
+            <option value="center">Center</option>
             <option value="baseline">Baseline</option>
-            <option value="first baseline">First baseline</option>
-            <option value="last baseline">Last baseline</option>
+            <option value="stretch">Stretch</option>
           </select>
         </div>
 
@@ -73,20 +56,13 @@
           <select
             id="align_items"
             class="form-control"
-            v-model="text.aligncontent"
+            v-model="format.aligncontent"
           >
-            <option value="normal">Normal</option>
-            <option value="stretch">Stretch</option>
-            <option value="center">Center</option>
-            <option value="start">Start</option>
-            <option value="end">End</option>
             <option value="flex-start">Flex start</option>
             <option value="flex-end">Flex end</option>
-            <option value="self-start">Self start</option>
-            <option value="self-end">Self end</option>
+            <option value="center">Center</option>
             <option value="baseline">Baseline</option>
-            <option value="first baseline">First baseline</option>
-            <option value="last baseline">Last baseline</option>
+            <option value="stretch">Stretch</option>
           </select>
         </div>
       </div>
@@ -107,10 +83,10 @@ export default {
     ColorPicker,
   },
 
-  props: ["text"],
+  props: ["format"],
   methods: {
     color_updated: function(event) {
-      Vue.set(this.text, "backgroundcolor", event);
+      Vue.set(this.format, "backgroundcolor", event);
     },
   },
 };

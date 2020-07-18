@@ -43,7 +43,7 @@
                 >テキスト</label
               >
               <textarea
-                v-model="text.src"
+                v-model="src"
                 rows="3"
                 class="form-control"
                 placeholder="絵文字のテキストをここに"
@@ -54,7 +54,7 @@
         </div>
 
         <div class="col-sm-9">
-          <TextDef :text="this.text" />
+          <TextDef :format="this.format" />
           <LetterDef
             v-for="letter in visible_letters"
             v-bind:letter="letter"
@@ -68,7 +68,7 @@
       Copyright (C)
       <a href="https://twitter.com/atsuoishimoto"
         ><img src="../../public/twitter.png" width="16px" /> atsuoishimoto</a
-      >
+      >&nbsp;
       <a href="https://github.com/atsuoishimoto/flex_emojibuilder"
         >https://github.com/atsuoishimoto/flex_emojibuilder</a
       ><br />
@@ -161,8 +161,8 @@ export default {
   props: [],
   data: function() {
     return {
-      text: {
-        src: "なる\nほど",
+      src: "なる\nほど",
+      format: {
         font: {
           family: "Sans Serif",
           size: 45,
@@ -173,20 +173,20 @@ export default {
           strikethrough: false,
         },
         direction: "row",
-        justifycontent: "space-around",
+        justifycontent: "center",
         alignitems: "center",
-        aligncontent: "stretch",
+        aligncontent: "center",
       },
       letters: [],
     };
   },
   methods: {
     generate_letters: function() {
-      if (!this.text.src) {
+      if (!this.src) {
         this.letters = [];
         return;
       }
-      let arr = splitter.splitGraphemes(this.text.src);
+      let arr = splitter.splitGraphemes(this.src);
 
       this.letters = arr.map((letter, index) => {
         return {
@@ -202,11 +202,10 @@ export default {
     this.generate_letters();
   },
   watch: {
-    text: {
+    src: {
       handler: function() {
         this.generate_letters();
       },
-      deep: true,
     },
   },
   computed: {
@@ -215,16 +214,16 @@ export default {
     },
     divstyle: function() {
       let style = "";
-      if (this.text.backgroundcolor) {
-        style += `background-color: ${this.text.backgroundcolor};`;
+      if (this.format.backgroundcolor) {
+        style += `background-color: ${this.format.backgroundcolor};`;
       }
-      let fontstyle = fontToStyle(this.text.font);
+      let fontstyle = fontToStyle(this.format.font);
 
       let flexstyle = `
-flex-direction: ${this.text.direction};
-justify-content: ${this.text.justifycontent};
-align-items: ${this.text.alignitems};
-align-content: ${this.text.aligncontent};
+flex-direction: ${this.format.direction};
+justify-content: ${this.format.justifycontent};
+align-items: ${this.format.alignitems};
+align-content: ${this.format.aligncontent};
 `;
       return style + flexstyle + fontstyle;
     },
@@ -239,7 +238,7 @@ align-content: ${this.text.aligncontent};
           c = escapeHtml(letter.text);
         }
 
-        let style = "";
+        let style = "line-height:1em;";
         if ("alignself" in letter) {
           if (letter.alignself) {
             style += `align-self: ${letter.alignself};`;
