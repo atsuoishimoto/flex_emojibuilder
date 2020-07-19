@@ -3,35 +3,18 @@
     <div class="container">
       <div class="row">
         <div class="col-sm-12" style="margin: 2em 0;">
+          <a id="top" />
           <h2 class="display-3">
             <div style="font-family: Arial Black;text-align:center;">Flex</div>
-            <div class="display-4" style="text-align:center;">
-              絵文字ビルダー
-            </div>
+            <div class="display-4" style="text-align:center;">絵文字ビルダー</div>
           </h2>
 
           <p
             style="margin-top: 1em;font-family: Arial Black;text-align:center;"
-          >
-            Slack/Discordの絵文字作成にどうぞ。
-          </p>
-          <p
-            style="margin-top: 1em;font-family: Arial Black;text-align:center;"
-          >
-            Safariだとダメっぽいです。Chrome/Firefoxでご利用ください。
-          </p>
-          <p
-            style="margin-top: 1em;font-family: Arial Black;text-align:center;"
-          >
-            あと、使えないフォントもけっこうあるっぽいです。いろいろお試しください。
-          </p>
-          <p
-            style="margin-top: 2em;font-family: Arial Black;text-align:center;"
-          >
-            <a href="https://twitter.com/atsuoishimoto"
-              ><img src="../../public/twitter.png" width="16px" />
-              atsuoishimoto</a
-            >
+          >Slack/Discordの絵文字作成にどうぞ。</p>
+
+          <p style="margin-top: 1em;font-family: Arial Black;text-align:center;">
+            <a href="#usage">使い方</a>
           </p>
         </div>
       </div>
@@ -39,15 +22,8 @@
         <div class="col-sm-2">
           <div class="form-group">
             <div style="padding:10px;background-color:dodgerblue;">
-              <label style="font-size:2em;font-weight:bold;color:white;"
-                >テキスト</label
-              >
-              <textarea
-                v-model="src"
-                rows="3"
-                class="form-control"
-                placeholder="絵文字のテキストをここに"
-              ></textarea>
+              <label style="font-size:2em;font-weight:bold;color:white;">テキスト</label>
+              <textarea v-model="src" rows="3" class="form-control" placeholder="絵文字のテキストをここに"></textarea>
             </div>
             <Preview :divstyle="divstyle" :html="html" scale="1" />
           </div>
@@ -65,16 +41,39 @@
       </div>
     </div>
 
-    <p style="margin-top:10em;font-size: 9pt; text-align:center;">
-      Copyright (C)
-      <a href="https://twitter.com/atsuoishimoto"
-        ><img src="../../public/twitter.png" width="16px" /> atsuoishimoto</a
-      >&nbsp;
-      <a href="https://github.com/atsuoishimoto/flex_emojibuilder"
-        >https://github.com/atsuoishimoto/flex_emojibuilder</a
-      ><br />
-      当サイトのパフォーマンスと、利用者の経験の改善のために、Cookieを用いたユーザ情報の収集を行っていません。してないってば。
-    </p>
+    <div class="container">
+      <div class="row">
+        <hr />
+        <a id="usage" />
+        <div
+          style="width:80%; font-family: Arial; font-size: 2rem; margin: 0 2rem;
+            margin-top: 2em; border-top: solid 4px #b78c8c;"
+        >
+          <h2 style="font-size: 3rem;  margin: 0.5em 0; ">Flex絵文字ビルダーの使い方</h2>
+
+          <ul>
+            <li>テキストを入力すると、リアルタイムに画像を生成します。</li>
+            <li>
+              ローカルにインストールされているフォントも指定できます。Macの場合は ヒラギノ丸ゴ proN、
+              Windowsの場合は
+            </li>
+          </ul>
+          <a href="#top">戻る</a>
+        </div>
+      </div>
+      <div class="row">
+        <p style="margin-top:10em;font-size: 9pt; text-align:center;">
+          Copyright (C)
+          <a href="https://twitter.com/atsuoishimoto">
+            <img src="../../public/twitter.png" width="16px" /> atsuoishimoto
+          </a>&nbsp;
+          <a
+            href="https://github.com/atsuoishimoto/flex_emojibuilder"
+          >https://github.com/atsuoishimoto/flex_emojibuilder</a>
+          <br />当サイトのパフォーマンスと、利用者の経験の改善のために、Cookieを用いたユーザ情報の収集を行っていません。してないってば。
+        </p>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -166,7 +165,7 @@ export default {
   components: {
     TextDef,
     LetterDef,
-    Preview,
+    Preview
   },
   props: [],
   data: function() {
@@ -180,14 +179,14 @@ export default {
           bold: true,
           italic: false,
           underline: false,
-          strikethrough: false,
+          strikethrough: false
         },
         direction: "row",
         justifycontent: "center",
         alignitems: "center",
-        aligncontent: "center",
+        aligncontent: "center"
       },
-      letters: [],
+      letters: []
     };
   },
   methods: {
@@ -203,10 +202,10 @@ export default {
           text: letter,
           id: index,
           font: {},
-          alignself: "auto",
+          alignself: "auto"
         };
       });
-    },
+    }
   },
   mounted: function() {
     this.generate_letters();
@@ -215,12 +214,12 @@ export default {
     src: {
       handler: function() {
         this.generate_letters();
-      },
-    },
+      }
+    }
   },
   computed: {
     visible_letters: function() {
-      return this.letters.filter((letter) => letter.text != "\n");
+      return this.letters.filter(letter => letter.text != "\n");
     },
     divstyle: function() {
       let style = "";
@@ -238,7 +237,7 @@ align-content: ${this.format.aligncontent};
       return style + flexstyle + fontstyle;
     },
     html: function() {
-      const elems = this.letters.map((letter) => {
+      const elems = this.letters.map(letter => {
         let c;
         if (letter.text === "\n") {
           return `<span style="width:100%;"></span>`;
@@ -284,8 +283,8 @@ align-content: ${this.format.aligncontent};
       });
 
       return elems.join("");
-    },
-  },
+    }
+  }
 };
 </script>
 
