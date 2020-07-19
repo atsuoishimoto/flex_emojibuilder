@@ -46,7 +46,7 @@
         <hr />
         <a id="usage" />
         <div
-          style="width:80%; font-family: Arial; font-size: 2rem; margin: 0 2rem;
+          style="width:80%; font-family: Arial; font-size: 1.5rem; margin: 0 2rem;
             margin-top: 2em; border-top: solid 4px #b78c8c;"
         >
           <h2 style="font-size: 3rem;  margin: 0.5em 0; ">Flex絵文字ビルダーの使い方</h2>
@@ -55,7 +55,25 @@
             <li>テキストを入力すると、リアルタイムに画像を生成します。</li>
             <li>
               ローカルにインストールされているフォントも指定できます。
-              Macの場合は ヒラギノ丸ゴ proN などを指定してみてください。
+              Macの場合は
+              <code>ヒラギノ丸ゴ ProN</code>、
+              Windowsなら
+              <code>游ゴシック</code> /
+              <code>游明朝</code>
+              などを指定してみてください。
+            </li>
+            <li>
+              Windowsでは、
+              <a href="http://jikasei.me/font/rounded-mplus/">Rounded M+ フォント</a>
+              などを「すべてのユーザに対してインストール」でインストールすると、
+              <code>Rounded M+ 1C</code> のように指定して利用できます。
+            </li>
+            <li>文字のレイアウトは、全てCSSのプロパティとして指定しています。</li>
+            <li>
+              文字はそれぞれ
+              <a
+                href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox#The_flex_container"
+              >Flex container</a>の独立したFlex item要素となっていますので、Flexboxのプロパティを指定して自由にレイアウトを指定できます。
             </li>
           </ul>
           <a href="#top">戻る</a>
@@ -293,4 +311,13 @@ align-content: ${this.format.aligncontent};
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped></style>
+<style scoped>
+code {
+  font-family: monospace;
+  color: #e83e8c;
+  font-size: 1em;
+}
+li {
+  margin-bottom: 1em;
+}
+</style>
