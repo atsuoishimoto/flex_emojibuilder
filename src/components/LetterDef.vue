@@ -1,7 +1,9 @@
 <template>
   <div
     class="row"
-    :style="`background-color: ${letter.id % 2 == 0 ? 'white' : '#f5f3f3'}`"
+    :style="
+      `padding-top:10px;background-color: ${idx % 2 == 0 ? 'white' : '#f5f3f3'}`
+    "
   >
     <div class="col-sm-1">
       <span class="letter_text">{{ letter.text }}</span>

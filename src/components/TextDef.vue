@@ -2,7 +2,7 @@
   <div class="row">
     <div
       class="col-sm-12"
-      style="padding-left: 2em; background-color:gainsboro"
+      style="padding-left: 2em; padding-top:10px;background-color:gainsboro"
     >
       <div class="row">
         <div class="form-group">

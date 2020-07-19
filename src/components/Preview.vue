@@ -50,7 +50,7 @@
     <div style="margin-top: 2em;">
       <img
         ref="img_64"
-        style="margin:  0.5em 1.5em; padding:5px; width:64px; height:64px; border: solid 1px #c0c0c0;"
+        style="margin:  0.5em 0em; padding:5px; width:64px; height:64px; border: solid 1px #c0c0c0;"
         @load="imgloaded"
       />
       <img
@@ -62,7 +62,7 @@
     <div>
       <img
         ref="img_64_gray"
-        style="margin: 0.5em 1.5em; padding:5px; width:64px; height:64px; border: solid 1px #c0c0c0;background-color:#d5dcf4;"
+        style="margin: 0.5em 0em; padding:5px; width:64px; height:64px; border: solid 1px #c0c0c0;background-color:#d5dcf4;"
         @load="imgloaded"
       />
       <img
@@ -74,7 +74,7 @@
     <div>
       <img
         ref="img_64_black"
-        style="margin: 0.5em 1.5em; padding:5px; width:64px; height:64px; border: solid 1px #c0c0c0;background-color:#485d6d;"
+        style="margin: 0.5em 0em; padding:5px; width:64px; height:64px; border: solid 1px #c0c0c0;background-color:#485d6d;"
         @load="imgloaded"
       />
       <img

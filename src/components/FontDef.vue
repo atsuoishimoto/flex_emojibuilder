@@ -10,7 +10,12 @@
       <div class="col-sm-2">
         <div class="form-group">
           <label>サイズ</label>
-          <input type="number" class="form-control" v-model="font.size" />
+          <input
+            type="number"
+            class="form-control"
+            style="width:5em;"
+            v-model="font.size"
+          />
         </div>
       </div>
       <div class="col-sm-3">
@@ -25,7 +30,12 @@
       <div class="col-sm">
         <div class="form-group">
           <div class="form-check form-check-inline">
-            <input type="checkbox" class="form-check-input" :id="$id('bold')" v-model="font.bold" />
+            <input
+              type="checkbox"
+              class="form-check-input"
+              :id="$id('bold')"
+              v-model="font.bold"
+            />
             <label class="form-check-label" :for="$id('bold')">
               <b>Bold</b>
             </label>
@@ -62,6 +72,25 @@
             <label class="form-check-label" :for="$id('strikethrough')">
               <s>Strikethrough</s>
             </label>
+
+            <div class="form-group" style="margin-left:2em;">
+              <label>letter-spacing</label>
+              <input
+                type="number"
+                class="form-control"
+                style="width:5em;"
+                v-model="font.letter_spacing"
+              />
+            </div>
+            <div class="form-group" style="margin-left:2em;">
+              <label>line-height</label>
+              <input
+                type="number"
+                class="form-control"
+                style="width:5em;"
+                v-model="font.line_height"
+              />
+            </div>
           </div>
         </div>
       </div>
@@ -77,13 +106,13 @@ export default {
   name: "FontDef",
   props: ["font"],
   components: {
-    ColorPicker
+    ColorPicker,
   },
   methods: {
     color_updated: function(event) {
       Vue.set(this.font, "color", event);
-    }
-  }
+    },
+  },
 };
 </script>
 

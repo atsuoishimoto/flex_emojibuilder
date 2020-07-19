@@ -2,7 +2,7 @@
   <div>
     <div class="container">
       <div class="row">
-        <div class="col-sm-12" style="margin: 4em 0;">
+        <div class="col-sm-12" style="margin: 2em 0;">
           <h2 class="display-3">
             <div style="font-family: Arial Black;text-align:center;">Flex</div>
             <div class="display-4" style="text-align:center;">
@@ -11,17 +11,17 @@
           </h2>
 
           <p
-            style="margin-top: 2em;font-family: Arial Black;text-align:center;"
+            style="margin-top: 1em;font-family: Arial Black;text-align:center;"
           >
             Slack/Discordの絵文字作成にどうぞ。
           </p>
           <p
-            style="margin-top: 2em;font-family: Arial Black;text-align:center;"
+            style="margin-top: 1em;font-family: Arial Black;text-align:center;"
           >
             Safariだとダメっぽいです。Chrome/Firefoxでご利用ください。
           </p>
           <p
-            style="margin-top: 2em;font-family: Arial Black;text-align:center;"
+            style="margin-top: 1em;font-family: Arial Black;text-align:center;"
           >
             あと、使えないフォントもけっこうあるっぽいです。いろいろお試しください。
           </p>
@@ -36,7 +36,7 @@
         </div>
       </div>
       <div class="row">
-        <div class="col-sm-3">
+        <div class="col-sm-2">
           <div class="form-group">
             <div style="padding:10px;background-color:dodgerblue;">
               <label style="font-size:2em;font-weight:bold;color:white;"
@@ -53,11 +53,12 @@
           </div>
         </div>
 
-        <div class="col-sm-9">
+        <div class="col-sm-10">
           <TextDef :format="this.format" />
           <LetterDef
-            v-for="letter in visible_letters"
+            v-for="(letter, index) in visible_letters"
             v-bind:letter="letter"
+            v-bind:idx="index"
             :key="letter.id"
           ></LetterDef>
         </div>
@@ -148,6 +149,15 @@ function fontToStyle(font) {
     styles += `text-decoration: ${decoration};`;
   }
 
+  if ("line_height" in font) {
+    styles += `line-height: ${font.line_height}em;`;
+  } else {
+    styles += `line-height: 1em;`;
+  }
+
+  if ("letter_spacing" in font) {
+    styles += `letter-spacing: ${font.letter_spacing}pt;`;
+  }
   return styles;
 }
 
@@ -238,7 +248,7 @@ align-content: ${this.format.aligncontent};
           c = escapeHtml(letter.text);
         }
 
-        let style = "line-height:1em;";
+        let style = "";
         if ("alignself" in letter) {
           if (letter.alignself) {
             style += `align-self: ${letter.alignself};`;
