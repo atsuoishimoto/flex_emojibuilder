@@ -98,7 +98,7 @@ function escapeHtml(unsafe) {
 function fontToStyle(font) {
   let styles = "";
   if ("family" in font) {
-    styles += `font-family:'${font.family}';`;
+    styles += `font-family:${font.family};`;
   }
   if ("size" in font) {
     styles += `font-size:${font.size}pt;`;
