@@ -54,13 +54,22 @@
           <ul>
             <li>テキストを入力すると、リアルタイムに画像を生成します。</li>
             <li>
-              ローカルにインストールされているフォントも指定できます。
-              Macの場合は
-              <code>ヒラギノ丸ゴ ProN</code>、
-              Windowsなら
-              <code>游ゴシック</code> /
-              <code>游明朝</code>
-              などを指定してみてください。
+              <p>ローカルにインストールされているフォントも指定できます。</p>
+              <p>Macの場合は</p>
+              <div style="padding-left: 3em; margin-bottom: 1rem;">
+                <code
+                  style="font-family:'ヒラギノ丸ゴ ProN'; font-weight:bold;font-size: 1.2em;"
+                >ヒラギノ丸ゴ ProN</code>
+              </div>
+
+              <p>Windowsなら</p>
+              <div style="padding-left: 3em; margin-bottom: 1rem;">
+                <code style="font-family:'游ゴシック'; font-weight:bold;font-size: 1.2em;">游ゴシック</code>
+                や
+                <code
+                  style="font-family:'游明朝'; font-weight:bold;font-size: 1.2em;"
+                >游明朝</code>
+              </div>などを指定してみてください。
             </li>
             <li>
               Windowsでは、
