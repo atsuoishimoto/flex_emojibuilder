@@ -125,11 +125,13 @@ function escapeHtml(unsafe) {
 function fontToStyle(font) {
   let styles = "";
   if ("family" in font) {
-    let family = font.family;
-    if (family.indexOf(" ") != -1) {
-      family = `'${family}'`;
+    let family = font.family.trim();
+    if (family) {
+      if (family.indexOf(" ") != -1) {
+        family = `'${family}'`;
+      }
+      styles += `font-family:${family};`;
     }
-    styles += `font-family:${family};`;
   }
   if ("size" in font) {
     styles += `font-size:${font.size}pt;`;
