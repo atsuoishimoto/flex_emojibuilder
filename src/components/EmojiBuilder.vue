@@ -11,6 +11,10 @@
 
           <p
             style="margin-top: 1em;font-family: Arial Black;text-align:center;"
+          >HTML/CSS 知ってる人用の絵文字ビルダーです</p>
+
+          <p
+            style="margin-top: 1em;font-family: Arial Black;text-align:center;"
           >Slack/Discordの絵文字作成にどうぞ。</p>
 
           <p style="margin-top: 1em;font-family: Arial Black;text-align:center;">
